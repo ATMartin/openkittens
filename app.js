@@ -18,7 +18,6 @@ var isMobile = function() {
 var bringOnTheKittiez = function() {
   $.getJSON("https://openkittens.firebaseio.com/kittens.json", startKittens);
   if (isMobile) {
-    console.log("Mobile!");
     $('.video').hide();
     $('.fallback').show();
   }
@@ -92,9 +91,16 @@ $(document).ready(function() {
   linkToARescue();
 });
 
-$(document).on('keyup', function(e) {
-  if (e.which == keys.right) {
+if (isMobile) {
+  $(document).on('touchstart', function(e) {
     loadKittyGif(allTheKittiez[0]);
     linkToARescue();
-  }
-});
+  });
+} else {
+  $(document).on('keyup', function(e) {
+    if (e.which == keys.right) {
+      loadKittyGif(allTheKittiez[0]);
+      linkToARescue();
+    }
+  });
+}
