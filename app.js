@@ -28,7 +28,6 @@ var shakeTheBasket = function(kittiez) {
 var startKittens = function(kittiez) {
   cleanKitties = freshlyBathed(kittiez);
   allTheKittiez = shakeTheBasket(cleanKitties);
-  console.log(allTheKittiez);
   loadKittyGif(allTheKittiez[0]);
 }
 
