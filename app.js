@@ -1,11 +1,12 @@
 var allTheKittiez;
+var footerToggled = false;
 var keys = {
   right : 39,
   left : 37
 }
 var rescues = [
   ["Cats Exclusive (Margate, FL)", "http://www.catsexclusive.org/"],
-  ["Wescott Animal Rescue (Columbia, SC)", "http://www.wescottacres.com/rescue.htm"],
+  ["Wescott Pet Rescue (Columbia, SC)", "http://www.wescottacres.com/rescue.htm"],
   ["Pawmetto Lifeline (Columbia, SC)", "http://pawmettolifeline.org/"]
 ];
 
@@ -87,13 +88,31 @@ var setTwitterLink = function(url) {
   $('#tweet').attr('href', url);
 }
 
+var toggleFooter = function() {
+
+  if (footerToggled) {
+    $('.footer').css('top', '65%');
+  } else {
+    $('.footer').css('top', '95%');
+  }  
+  footerToggled = !footerToggled;
+}
+
 $(document).ready(function() {
   bringOnTheKittiez();
   linkToARescue();
 });
 
 if (isMobile()) {
-  $(document).on('touchstart', function(e) {
+  $('.footer-toggle').on('touchend', function(e) {
+    e.stopPropagation();
+    e.preventDefault();
+    toggleFooter();
+  });
+}
+
+if (isMobile()) {
+  $(document).on('touchstart', '.fallback', function(e) {
     loadKittyGif(allTheKittiez[0]);
     linkToARescue();
   });
