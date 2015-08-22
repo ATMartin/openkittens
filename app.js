@@ -1,6 +1,7 @@
 var allTheKittiez;
 var keys = {
-  'change' : '39'
+  right : 39,
+  left : 37
 }
 var rescues = [
   ["Cats Exclusive (Margate, FL)", "http://www.catsexclusive.org/"],
@@ -16,6 +17,11 @@ var freshlyBathed = function(kittiez) {
   kittiez.forEach(function(slug, idx) {
     if (slug == null) { kittiez.splice(idx, 1); }
   });
+  return kittiez;
+}
+
+var shakeTheBasket = function(kittiez) {
+  kittiez = kittiez.sort(function() { return [1, 0, -1][ Math.random() * 3 | 0] });
   return kittiez;
 }
 
@@ -48,7 +54,8 @@ $(document).ready(function() {
 });
 
 $(document).on('keyup', function(e) {
-  if (e.keyCode == keys['change']) {
+  if (e.which == keys.right) {
     loadKittyGif(allTheKittiez[0]);
+    linkToARescue();
   }
 });
