@@ -21,12 +21,13 @@ var freshlyBathed = function(kittiez) {
 }
 
 var shakeTheBasket = function(kittiez) {
-  kittiez = kittiez.sort(function() { return [1, 0, -1][ Math.random() * 3 | 0] });
-  return kittiez;
+  sortedKittiez = kittiez.sort(function() { return [1, 0, -1][ Math.random() * 3 | 0] });
+  return sortedKittiez;
 }
 
 var startKittens = function(kittiez) {
-  allTheKittiez = freshlyBathed(kittiez);
+  cleanKitties = freshlyBathed(kittiez);
+  allTheKittiez = shakeTheBasket(cleanKitties);
   console.log(allTheKittiez);
   loadKittyGif(allTheKittiez[0]);
 }
@@ -44,7 +45,11 @@ var kittehTweetUrl = function(slug) {
 }
 
 var loadKittyGif = function(slug) {
-  if (!slug) { $('.video').hide(); return; }
+  if (!slug) { 
+    $('.video').hide();
+    $('.backer').show();
+    return;
+  }
   sourceUrl = wherezMyKitteh(slug);
   setDirectLink(kittehGif(slug));
   setTwitterLink(kittehTweetUrl(slug));
