@@ -14,6 +14,8 @@ Wanna be an even bigger help? Offer a few bucks to one of these incredible organ
 
 It's for a good cause - MOAR KITTIES!
 
+* Please note - I'm not affiliated with these groups. I just know they do awesome work. 
+
 ## BIG Thanks
 - @heyItsOlivia & the [OpenPuppies](https://github.com/heyitsolivia/secretpuppies) project
 - [Imgur](http://www.imgur.com) for making gif compilation fast & easy.
