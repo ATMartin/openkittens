@@ -35,9 +35,19 @@ var wherezMyKitteh = function(slug) {
   return "https://i.imgur.com/" + slug + ".mp4";
 }
 
+var kittehGif = function(slug) {
+  return "https://i.imgur.com/" + slug + ".gif";
+}
+
+var kittehTweetUrl = function(slug) {
+  return "http://twitter.com/home?status=I%20found%20this%20cute%20kitten%20with%20openkittens.com!%20" + kittehGif(slug);
+}
+
 var loadKittyGif = function(slug) {
   if (!slug) { $('.video').hide(); return; }
   sourceUrl = wherezMyKitteh(slug);
+  setDirectLink(kittehGif(slug));
+  setTwitterLink(kittehTweetUrl(slug));
   $('video > source').attr('src', sourceUrl);
   $('video').load();
   allTheKittiez.splice(0, 1);
@@ -46,6 +56,14 @@ var loadKittyGif = function(slug) {
 var linkToARescue = function() {
   var rescue = rescues[Math.floor(Math.random()*(rescues.length))];
   $('#rescue').attr('href', rescue[1]).text(rescue[0]); 
+}
+
+var setDirectLink = function(url) {
+  $('#direct').attr('href', url);
+}
+
+var setTwitterLink = function(url) {
+  $('#tweet').attr('href', url);
 }
 
 $(document).ready(function() {

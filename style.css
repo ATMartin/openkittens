@@ -24,6 +24,16 @@ video {
   height: 100%;  
 }
 
+.icon {
+  height: 1em;
+  width: 2em;
+  fill: #999;
+}
+
+.icon:hover {
+  fill: #eee;
+}
+
 .footer {
   position: fixed;
   width: 100%;
@@ -44,7 +54,10 @@ video {
   width: 40%;
 }
 
-.footer > .center { width: 15%; }
+.footer > .center { 
+  width: 18%;
+  text-align: center; 
+}
 
 .footer .left {
   text-align: left;
@@ -60,7 +73,7 @@ a {
   color: #999; 
   text-decoration: none;
 }
-a:hover { color: #eee; }
 a:visited { color: #999; }
+a:hover { color: #eee; }
 
 
