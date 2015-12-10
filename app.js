@@ -2,7 +2,8 @@ var allTheKittiez;
 var footerToggled = false;
 var keys = {
   right : 39,
-  left : 37
+  left : 37,
+  space: 32
 }
 var rescues = [
   ["Cats Exclusive (Margate, FL)", "http://www.catsexclusive.org/"],
@@ -118,7 +119,7 @@ if (isMobile()) {
   });
 } else {
   $(document).on('keyup', function(e) {
-    if (e.which == keys.right) {
+    if (e.which == keys.right || e.which == keys.space) {
       loadKittyGif(allTheKittiez[0]);
       linkToARescue();
     }
